@@ -116,6 +116,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
+            display: inline-block;
         }
 
         .btn:hover {
@@ -190,7 +191,7 @@
             justify-content: center;
             align-items: center;
             color: var(--text-muted);
-            /* TUTAJ W PRZYSZŁOŚCI WSTAWISZ SWOJE ZDJĘCIE */
+            /* ZDJĘCIE PROFILOWE */
             background-image: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -210,6 +211,52 @@
             margin: 0 auto 40px auto;
             color: var(--text-muted);
             font-size: 18px;
+        }
+
+        /* APP SHOWCASE GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0 auto;
+        }
+
+        .gallery-item {
+            background-color: #0A0D12;
+            border: 1px solid #1F2735;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: border-color 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #1F2735;
+            display: block;
+        }
+
+        .gallery-content {
+            padding: 20px;
+        }
+
+        .gallery-content h4 {
+            color: #FFF;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 0;
         }
 
         /* Pricing Section */
@@ -303,7 +350,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 40px; }
             .about-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Mobile menu hiding for simplicity */
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -331,14 +378,14 @@
                 </div>
             <div class="about-text">
                 <h3>Hi, I'm your new Coach.</h3>
-                <p>The endurance sports world is full of generic PDF templates and coaches who simply say "go hard". I do things differently. My approach is 100% data-driven, ensuring every minute you spend sweating serves a specific physiological purpose.</p>
-                <p>By combining advanced endurance metrics with proper Strength & Conditioning (S&C), we don't just build your engine – we bulletproof your chassis.</p>
+                <p>The endurance sports world is full of generic PDF templates and coaches guessing your zones. I do things differently. With over <strong>12 years of experience in endurance sports</strong>—racing competitively as a road cyclist from the junior ranks up to the elite level, and now competing as a triathlete—I know exactly what it takes to perform at the highest limits.</p>
+                <p>But practical experience is just the foundation. I combine my racing background with advanced data analytics and academic sports science to optimize your performance safely and effectively. Every minute you spend sweating will serve a specific physiological purpose.</p>
                 
                 <ul class="credentials">
-                    <li>BSc in Sports Coaching (Cycling Specialization)</li>
-                    <li>MSc in Strength & Conditioning / Sports Science (in progress)</li>
+                    <li>BSc in Sports Science (Cycling Coach Specialization)</li>
+                    <li>MSc in Motor Preparation & Sports Science (in progress)</li>
                     <li>Certified Athletics & Track Instructor</li>
-                    <li>Expert in PMC, TSS, and Power-Based Training</li>
+                    <li>12+ Years Racing Experience (Elite Road Cycling & Triathlon)</li>
                 </ul>
             </div>
         </div>
@@ -347,10 +394,11 @@
     <section id="platform" class="platform">
         <h2 class="section-title">Exclusive <span>Endura IQ</span> Platform</h2>
         <p>When you join the team, you don't get a spreadsheet. You gain VIP access to my proprietary coaching application, Endura IQ.</p>
+        
         <div class="about-grid" style="margin-top: 50px;">
             <div class="about-text" style="text-align: left;">
                 <ul class="credentials">
-                    <li><strong>Direct Garmin Sync:</strong> Your planned workouts go straight to your watch. Your watch tells you if you are too slow or too fast.</li>
+                    <li><strong>Seamless Garmin Transfer:</strong> Push your planned workouts from the app directly to your watch with a single click. Your watch takes over, guiding you through intervals and alerting you if you are out of your target zone.</li>
                     <li><strong>Advanced Analytics:</strong> Track your CTL (Fitness), ATL (Fatigue), and TSB (Form) in real-time.</li>
                     <li><strong>Daily Feedback:</strong> Leave RPE and feeling notes directly on your calendar days.</li>
                     <li><strong>Mobile Ready:</strong> Install it on your phone's home screen and keep your training in your pocket.</li>
@@ -359,7 +407,31 @@
             <div style="background: #0A0D12; border: 1px solid #00E5FF; border-radius: 12px; padding: 20px; box-shadow: 0 0 30px rgba(0,229,255,0.1);">
                 <h3 style="color: #FFF; margin-bottom: 10px;">Already a client?</h3>
                 <p style="color: #8BA1B8; margin-bottom: 20px;">Access your training dashboard here.</p>
-                <a href="LINK_DO_TWOJEJ_APLIKACJI_STREAMLIT" class="btn" style="display: inline-block; padding: 10px 20px; font-size: 14px;">App Login</a>
+                <a href="LINK_DO_TWOJEJ_APLIKACJI_STREAMLIT" class="btn" style="padding: 10px 20px; font-size: 14px;">App Login</a>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="dashboard.png" alt="Endura IQ Dashboard" />
+                <div class="gallery-content">
+                    <h4>Performance Management</h4>
+                    <p>Track your Form, Fitness, and Fatigue to nail your race-day peak.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="calendar.png" alt="Endura IQ Calendar" />
+                <div class="gallery-content">
+                    <h4>Dynamic Calendar</h4>
+                    <p>View your upcoming blocks, log RPE, and review plan compliance.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="analysis.png" alt="Endura IQ Analysis" />
+                <div class="gallery-content">
+                    <h4>Deep Analytics</h4>
+                    <p>Analyze power zones, heart rate, and interval pacing post-workout.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -375,8 +447,7 @@
                     <li>For Runners OR Cyclists</li>
                     <li>Custom Data-Driven Training Plan</li>
                     <li>Full access to Endura IQ App</li>
-                    <li>Strength & Conditioning (S&C) integration</li>
-                    <li>Garmin Connect Auto-Sync</li>
+                    <li>Seamless Garmin Workout Transfer</li>
                     <li>Weekly plan adjustments & Chat</li>
                 </ul>
                 <a href="LINK_ZE_STRIPE_DLA_149" class="btn" style="display: block; width: 100%; padding: 15px 0;">Start Now</a>
@@ -389,7 +460,7 @@
                     <li>Swim, Bike, and Run Programming</li>
                     <li>Complete Load Management (PMC)</li>
                     <li>Full access to Endura IQ App</li>
-                    <li>Strength & Conditioning (S&C) for Triathletes</li>
+                    <li>Seamless Garmin Workout Transfer</li>
                     <li>Race day strategies & pacing</li>
                     <li>Priority communication</li>
                 </ul>
