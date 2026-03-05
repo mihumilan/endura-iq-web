@@ -79,7 +79,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at center, #11151C 0%, #0A0D12 100%);
+            background: radial-gradient(circle at center, #11151C 0%, #0A0A0F 100%);
             border-bottom: 1px solid #1F2735;
         }
 
@@ -216,24 +216,25 @@
         /* APP SHOWCASE GALLERY */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 50px auto 0 auto;
         }
 
         .gallery-item {
-            background-color: #0A0D12;
+            background-color: #0A0A0F;
             border: 1px solid #1F2735;
             border-radius: 12px;
             overflow: hidden;
             text-align: left;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, transform 0.3s;
         }
 
         .gallery-item:hover {
             border-color: var(--accent);
+            transform: translateY(-5px);
         }
 
         .gallery-item img {
@@ -404,7 +405,7 @@
                     <li><strong>Mobile Ready:</strong> Install it on your phone's home screen and keep your training in your pocket.</li>
                 </ul>
             </div>
-            <div style="background: #0A0D12; border: 1px solid #00E5FF; border-radius: 12px; padding: 20px; box-shadow: 0 0 30px rgba(0,229,255,0.1);">
+            <div style="background: #0A0A0F; border: 1px solid #00E5FF; border-radius: 12px; padding: 20px; box-shadow: 0 0 30px rgba(0,229,255,0.1);">
                 <h3 style="color: #FFF; margin-bottom: 10px;">Already a client?</h3>
                 <p style="color: #8BA1B8; margin-bottom: 20px;">Access your training dashboard here.</p>
                 <a href="LINK_DO_TWOJEJ_APLIKACJI_STREAMLIT" class="btn" style="padding: 10px 20px; font-size: 14px;">App Login</a>
@@ -412,25 +413,44 @@
         </div>
 
         <div class="gallery-grid">
+            
             <div class="gallery-item">
                 <img src="dashboard.png" alt="Endura IQ Dashboard" />
                 <div class="gallery-content">
-                    <h4>Performance Management</h4>
+                    <h4>Performance Management (PMC)</h4>
                     <p>Track your Form, Fitness, and Fatigue to nail your race-day peak.</p>
                 </div>
             </div>
+            
+            <div class="gallery-item">
+                <img src="analytics.png" alt="Endura IQ Analytics Pie Chart" />
+                <div class="gallery-content">
+                    <h4>Discipline Split Analytics</h4>
+                    <p>Get a precise overview of your training time distribution across swim, bike, and run.</p>
+                </div>
+            </div>
+
             <div class="gallery-item">
                 <img src="calendar.png" alt="Endura IQ Calendar" />
                 <div class="gallery-content">
                     <h4>Dynamic Calendar</h4>
-                    <p>View your upcoming blocks, log RPE, and review plan compliance.</p>
+                    <p>View your upcoming blocks, log RPE, and review planned vs. executed data.</p>
                 </div>
             </div>
+
             <div class="gallery-item">
-                <img src="analysis.png" alt="Endura IQ Analysis" />
+                <img src="builder.png" alt="Endura IQ Workout Builder" />
                 <div class="gallery-content">
-                    <h4>Deep Analytics</h4>
-                    <p>Analyze power zones, heart rate, and interval pacing post-workout.</p>
+                    <h4>Precision Workout Builder</h4>
+                    <p>Every interval is visually designed and mapped to your physiological zones (Power or Pace).</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="analysis.png" alt="Endura IQ Post-Workout Analysis" />
+                <div class="gallery-content">
+                    <h4>Deep Post-Workout Analysis</h4>
+                    <p>Analyze power zones, heart rate distribution, and interval pace with full GPS map data.</p>
                 </div>
             </div>
         </div>
@@ -464,7 +484,7 @@
                     <li>Race day strategies & pacing</li>
                     <li>Priority communication</li>
                 </ul>
-                <a href="LINK_ZE_STRIPE_DLA_199" class="btn" style="display: block; width: 100%; padding: 15px 0;">Start Now</a>
+                <a href="LINK_ZE_STRIPE_DLA_199" class="btn" style="display: block; width: 100%; padding: 159 0;">Start Now</a>
             </div>
 
         </div>
