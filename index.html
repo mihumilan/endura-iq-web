@@ -1,498 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endura IQ | Science-Based Endurance Coaching</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <title>Endura IQ - Premium Endurance Coaching</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
+        
         :root {
-            --bg-dark: #0A0D12;
-            --bg-card: #11151C;
-            --text-main: #E2E8F0;
+            --bg-color: #0A0D12;
+            --card-bg: #11151C;
+            --border-color: #1F2735;
+            --accent-color: #00E5FF;
+            --text-main: #FFFFFF;
             --text-muted: #8BA1B8;
-            --accent: #00E5FF;
-            --accent-hover: #00B4D8;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* NAVBAR */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background-color: rgba(10, 13, 18, 0.9);
+            background: rgba(10, 13, 18, 0.9);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #1F2735;
+            border-bottom: 1px solid var(--border-color);
         }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: #FFF;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .logo { font-size: 24px; font-weight: 900; color: var(--text-main); letter-spacing: 1px; }
+        .logo span { color: var(--accent-color); }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-color); }
+        .btn-login {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color) !important;
+            padding: 8px 20px;
+            border-radius: 6px;
         }
+        .btn-login:hover { background: var(--accent-color); color: #000 !important; }
 
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* HERO SECTION */
+        header {
             text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #11151C 0%, #0A0A0F 100%);
-            border-bottom: 1px solid #1F2735;
+            padding: 180px 20px 100px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.1) 0%, transparent 50%);
         }
-
-        .hero h1 {
-            font-size: 64px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .btn {
-            padding: 16px 40px;
+        h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
+        h1 span { color: var(--accent-color); }
+        .subtitle { font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-weight: 300; }
+        .btn-main {
+            display: inline-block;
             background: linear-gradient(90deg, #00B4D8 0%, #00E5FF 100%);
             color: #000;
+            padding: 16px 40px;
+            font-size: 18px;
             font-weight: 800;
-            font-size: 16px;
             text-decoration: none;
             border-radius: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
         }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
-        }
-
-        /* Section Global */
-        section {
-            padding: 100px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 60px;
-            color: #FFF;
-        }
-
-        .section-title span {
-            color: var(--accent);
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: var(--text-muted);
-        }
-
-        .credentials {
-            list-style: none;
-            margin-top: 30px;
-        }
-
-        .credentials li {
-            margin-bottom: 15px;
-            font-weight: 600;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        .credentials li::before {
-            content: '⚡';
-            margin-right: 15px;
-            color: var(--accent);
-        }
-
-        .about-img {
-            background-color: var(--bg-card);
-            border: 1px solid #1F2735;
+        /* FEATURES */
+        .section-title { text-align: center; font-size: 36px; margin: 80px 0 40px; font-weight: 800; }
+        .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0 5%; }
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-muted);
-            /* ZDJĘCIE PROFILOWE */
-            background-image: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        /* Platform Section */
-        .platform {
-            background-color: var(--bg-card);
-            text-align: center;
-            border-top: 1px solid #1F2735;
-            border-bottom: 1px solid #1F2735;
-        }
-
-        .platform p {
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            color: var(--text-muted);
-            font-size: 18px;
-        }
-
-        /* APP SHOWCASE GALLERY */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 50px auto 0 auto;
-        }
-
-        .gallery-item {
-            background-color: #0A0A0F;
-            border: 1px solid #1F2735;
-            border-radius: 12px;
-            overflow: hidden;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: border-color 0.3s, transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #1F2735;
-            display: block;
-        }
-
-        .gallery-content {
-            padding: 20px;
-        }
-
-        .gallery-content h4 {
-            color: #FFF;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .gallery-content p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background-color: var(--bg-card);
-            border: 1px solid #1F2735;
-            border-radius: 12px;
-            padding: 40px;
+            padding: 40px 30px;
+            flex: 1 1 300px;
+            max-width: 400px;
             text-align: center;
             transition: transform 0.3s;
-            position: relative;
-            overflow: hidden;
         }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+        .feature-icon { font-size: 40px; margin-bottom: 20px; }
+        .feature-card h3 { color: var(--accent-color); margin-bottom: 15px; }
+        .feature-card p { color: var(--text-muted); font-size: 15px; }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
+        /* TESTIMONIALS */
+        .testimonials { background: #0E1218; padding: 60px 5%; margin-top: 80px; }
+        .test-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .test-card { background: var(--bg-color); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; max-width: 350px; font-style: italic; color: var(--text-muted); }
+        .test-card strong { display: block; margin-top: 15px; color: #FFF; font-style: normal; }
 
-        .pricing-card.premium::before {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: 15px;
-            right: -35px;
-            background: var(--accent);
-            color: #000;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 5px 40px;
-            transform: rotate(45deg);
+        /* PRICING */
+        .pricing { padding: 80px 5%; text-align: center; }
+        .price-card {
+            background: linear-gradient(145deg, #131821 0%, #0B0E14 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 450px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15);
         }
+        .price { font-size: 56px; font-weight: 900; margin: 20px 0; }
+        .price span { font-size: 20px; color: var(--text-muted); font-weight: 400; }
+        .price-list { list-style: none; margin: 30px 0; text-align: left; color: var(--text-muted); }
+        .price-list li { margin-bottom: 15px; }
+        .price-list li::before { content: "✓"; color: var(--accent-color); font-weight: bold; margin-right: 10px; }
 
-        .pricing-card h3 {
-            font-size: 24px;
-            color: #FFF;
-            margin-bottom: 10px;
-        }
+        /* FAQ */
+        .faq { max-width: 800px; margin: 80px auto; padding: 0 20px; }
+        .faq-item { margin-bottom: 20px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; }
+        .faq-item h4 { margin-bottom: 10px; color: #FFF; }
+        .faq-item p { color: var(--text-muted); font-size: 15px; }
 
-        .price {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border-color); padding: 40px 5%; text-align: center; color: var(--text-muted); margin-top: 60px; font-size: 14px;}
+        footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
 
-        .price span {
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 400;
+        /* COOKIE BANNER */
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #11151C; border-top: 1px solid var(--accent-color);
+            padding: 20px; text-align: center; z-index: 9999;
+            display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;
         }
-
-        .features {
-            list-style: none;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-
-        .features li {
-            margin-bottom: 15px;
-            color: var(--text-main);
-            font-size: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .features li::before {
-            content: '✓';
-            color: var(--accent);
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #1F2735;
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-            .about-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
+        #cookie-banner p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0;}
+        .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Endura <span>IQ</span></div>
+        <div class="logo">ENDURA<span>IQ</span></div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#platform">The App</a>
-            <a href="#pricing">Pricing</a>
+            <a href="#features">Platforma</a>
+            <a href="#pricing">Współpraca</a>
+            <a href="https://tricoach-app.streamlit.app" class="btn-login" target="_blank">Zaloguj się</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1>Stop Guessing. <br><span>Start Training with Data.</span></h1>
-        <p>Premium online coaching for runners, cyclists, and triathletes. Backed by Sports Science, powered by proprietary software, and tailored to your physiology.</p>
-        <a href="#pricing" class="btn">View Coaching Plans</a>
-    </section>
+    <header>
+        <h1>Science-Based <span>Coaching</span></h1>
+        <p class="subtitle">Osiągnij życiową formę dzięki planom treningowym opartym na twardych danych, fizjologii i automatycznej integracji z Twoim zegarkiem.</p>
+        <a href="#pricing" class="btn-main">Rozpocznij współpracę</a>
+    </header>
 
-    <section id="about">
-        <h2 class="section-title">The <span>Science</span> Behind The Speed</h2>
-        <div class="about-grid">
-            <div class="about-img">
-                </div>
-            <div class="about-text">
-                <h3>Hi, I'm your new Coach.</h3>
-                <p>The endurance sports world is full of generic PDF templates and coaches guessing your zones. I do things differently. With over <strong>12 years of experience in endurance sports</strong>—racing competitively as a road cyclist from the junior ranks up to the elite level, and now competing as a triathlete—I know exactly what it takes to perform at the highest limits.</p>
-                <p>But practical experience is just the foundation. I combine my racing background with advanced data analytics and academic sports science to optimize your performance safely and effectively. Every minute you spend sweating will serve a specific physiological purpose.</p>
-                
-                <ul class="credentials">
-                    <li>BSc in Sports Science (Cycling Coach Specialization)</li>
-                    <li>MSc in Motor Preparation & Sports Science (in progress)</li>
-                    <li>Certified Athletics & Track Instructor</li>
-                    <li>12+ Years Racing Experience (Elite Road Cycling & Triathlon)</li>
-                </ul>
+    <h2 class="section-title" id="features">Dlaczego Endura IQ?</h2>
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">⌚</div>
+            <h3>Garmin Auto-Sync</h3>
+            <p>Nie musisz ręcznie zgłaszać wykonania planu. Aplikacja sama pobierze Twój trening z Garmin Connect, zanalizuje go i połączy z wytycznymi trenera.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Silnik Fizjologiczny</h3>
+            <p>Śledzenie zmęczenia (ATL), formy (TSB) i fitnessu (CTL) w czasie rzeczywistym. Twój plan jest zawsze dostosowany do Twojej aktualnej dyspozycji.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Precyzyjne Strefy</h3>
+            <p>Działamy na twardych liczbach. Moc na rowerze (W), tempo pływackie (/100m) i precyzyjne strefy biegowe importowane prosto na tarcze Twojego zegarka.</p>
+        </div>
+    </div>
+
+    <div class="testimonials">
+        <h2 class="section-title" style="margin-top:0;">Co mówią zawodnicy</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                "Pierwszy raz czuję, że trenuję z głową. Kiedy rano otwieram aplikację, widzę nie tylko co mam zrobić, ale dokładnie DLACZEGO mam to zrobić."
+                <strong>- Michał, Triathlonista (IRONMAN 70.3)</strong>
+            </div>
+            <div class="test-card">
+                "Funkcja automatycznego wysyłania planu z apki prosto na mojego Garmina to mistrzostwo świata. Odpalam zegarek i jadę to co wyliczył system."
+                <strong>- Kasia, Kolarstwo Szosowe</strong>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="platform" class="platform">
-        <h2 class="section-title">Exclusive <span>Endura IQ</span> Platform</h2>
-        <p>When you join the team, you don't get a spreadsheet. You gain VIP access to my proprietary coaching application, Endura IQ.</p>
-        
-        <div class="about-grid" style="margin-top: 50px;">
-            <div class="about-text" style="text-align: left;">
-                <ul class="credentials">
-                    <li><strong>Seamless Garmin Transfer:</strong> Push your planned workouts from the app directly to your watch with a single click. Your watch takes over, guiding you through intervals and alerting you if you are out of your target zone.</li>
-                    <li><strong>Advanced Analytics:</strong> Track your CTL (Fitness), ATL (Fatigue), and TSB (Form) in real-time.</li>
-                    <li><strong>Daily Feedback:</strong> Leave RPE and feeling notes directly on your calendar days.</li>
-                    <li><strong>Mobile Ready:</strong> Install it on your phone's home screen and keep your training in your pocket.</li>
-                </ul>
-            </div>
-            <div style="background: #0A0A0F; border: 1px solid #00E5FF; border-radius: 12px; padding: 20px; box-shadow: 0 0 30px rgba(0,229,255,0.1);">
-                <h3 style="color: #FFF; margin-bottom: 10px;">Already a client?</h3>
-                <p style="color: #8BA1B8; margin-bottom: 20px;">Access your training dashboard here.</p>
-                <a href="LINK_DO_TWOJEJ_APLIKACJI_STREAMLIT" class="btn" style="padding: 10px 20px; font-size: 14px;">App Login</a>
-            </div>
+    <div class="pricing" id="pricing">
+        <h2 class="section-title">Indywidualna Współpraca</h2>
+        <div class="price-card">
+            <h3>PREMIUM COACHING</h3>
+            <div class="price">499 zł <span>/ mies.</span></div>
+            <ul class="price-list">
+                <li>W 100% zindywidualizowany plan</li>
+                <li>Dostęp do własnego konta w aplikacji Endura IQ</li>
+                <li>Analiza danych (Moc, Tętno, Tempo)</li>
+                <li>Krzywa Profilu Mocy i statystyki formy (PMC)</li>
+                <li>Nielimitowany kontakt przez czat w aplikacji</li>
+                <li>Auto-synchronizacja Garmin Connect</li>
+            </ul>
+            <a href="https://buy.stripe.com/twoj-link-tutaj" class="btn-main" style="width: 100%;">WYKUP DOSTĘP</a>
+            <p style="margin-top: 15px; font-size: 12px; color: var(--text-muted);">Brak długoterminowych umów. Możesz zrezygnować w każdej chwili.</p>
         </div>
+    </div>
 
-        <div class="gallery-grid">
-            
-            <div class="gallery-item">
-                <img src="dashboard.png" alt="Endura IQ Dashboard" />
-                <div class="gallery-content">
-                    <h4>Performance Management (PMC)</h4>
-                    <p>Track your Form, Fitness, and Fatigue to nail your race-day peak.</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="analytics.png" alt="Endura IQ Analytics Pie Chart" />
-                <div class="gallery-content">
-                    <h4>Discipline Split Analytics</h4>
-                    <p>Get a precise overview of your training time distribution across swim, bike, and run.</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="calendar.png" alt="Endura IQ Calendar" />
-                <div class="gallery-content">
-                    <h4>Dynamic Calendar</h4>
-                    <p>View your upcoming blocks, log RPE, and review planned vs. executed data.</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="builder.png" alt="Endura IQ Workout Builder" />
-                <div class="gallery-content">
-                    <h4>Precision Workout Builder</h4>
-                    <p>Every interval is visually designed and mapped to your physiological zones (Power or Pace).</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="analysis.png" alt="Endura IQ Post-Workout Analysis" />
-                <div class="gallery-content">
-                    <h4>Deep Post-Workout Analysis</h4>
-                    <p>Analyze power zones, heart rate distribution, and interval pace with full GPS map data.</p>
-                </div>
-            </div>
+    <div class="faq">
+        <h2 class="section-title">Często zadawane pytania (FAQ)</h2>
+        <div class="faq-item">
+            <h4>1. Czy potrzebuję zegarka Garmin, aby z wami trenować?</h4>
+            <p>Nie jest to wymóg konieczny, ale mocno zalecany. Endura IQ posiada potężną, autorską integrację z ekosystemem Garmin, dzięki czemu plany wgrywają się na zegarek, a odbyte treningi same spływają do naszej bazy do analizy. Jeśli używasz Coros, Wahoo czy Suunto, będziesz mógł pobierać pliki manualnie (TCX).</p>
         </div>
-    </section>
-
-    <section id="pricing">
-        <h2 class="section-title">Coaching <span>Plans</span></h2>
-        <div class="pricing-grid">
-            
-            <div class="pricing-card">
-                <h3>Single Discipline</h3>
-                <div class="price">$149<span> / month</span></div>
-                <ul class="features">
-                    <li>For Runners OR Cyclists</li>
-                    <li>Custom Data-Driven Training Plan</li>
-                    <li>Full access to Endura IQ App</li>
-                    <li>Seamless Garmin Workout Transfer</li>
-                    <li>Weekly plan adjustments & Chat</li>
-                </ul>
-                <a href="LINK_ZE_STRIPE_DLA_149" class="btn" style="display: block; width: 100%; padding: 15px 0;">Start Now</a>
-            </div>
-
-            <div class="pricing-card premium">
-                <h3>Triathlon Coaching</h3>
-                <div class="price">$199<span> / month</span></div>
-                <ul class="features">
-                    <li>Swim, Bike, and Run Programming</li>
-                    <li>Complete Load Management (PMC)</li>
-                    <li>Full access to Endura IQ App</li>
-                    <li>Seamless Garmin Workout Transfer</li>
-                    <li>Race day strategies & pacing</li>
-                    <li>Priority communication</li>
-                </ul>
-                <a href="LINK_ZE_STRIPE_DLA_199" class="btn" style="display: block; width: 100%; padding: 159 0;">Start Now</a>
-            </div>
-
+        <div class="faq-item">
+            <h4>2. Jak szybko otrzymam plan po opłaceniu subskrypcji?</h4>
+            <p>Po dokonaniu płatności system wygeneruje dla Ciebie zaproszenie do utworzenia konta w aplikacji Endura IQ. Po zalogowaniu zostaniesz poproszony o wypełnienie szczegółowej ankiety profilowej (Zdrowie, Sprzęt, Czas wolny). Na jej podstawie trener w ciągu 48 godzin ułoży Twój pierwszy mikrocykl.</p>
         </div>
-    </section>
+        <div class="faq-item">
+            <h4>3. Czy moje dane zdrowotne są bezpieczne?</h4>
+            <p>Tak. Traktujemy Twoją prywatność ze śmiertelną powagą. Baza danych znajduje się w bezpiecznej, szyfrowanej chmurze MongoDB. Twoje hasła są zabezpieczone algorytmem bcrypt (zgodnie z RODO). W każdej chwili masz prawo wykasować całe swoje konto jednym kliknięciem ("Prawo do bycia zapomnianym").</p>
+        </div>
+    </div>
 
-   <footer>
-        <p>&copy; 2026 Endura IQ Coaching. All rights reserved. Designed for performance.</p>
-        <p style="margin-top: 10px;"><a href="terms.html" style="color: #64748B; text-decoration: none; font-size: 12px; transition: color 0.3s;">Terms & Conditions</a></p>
+    <footer>
+        <p>&copy; 2026 Endura IQ Coaching. Wszelkie prawa zastrzeżone.</p>
+        <p style="margin-top: 10px;">
+            Kontakt: <a href="mailto:trener@enduraiq.com">trener@enduraiq.com</a> |
+            <a href="terms.html">Regulamin (Terms of Service)</a> | 
+            <a href="privacy.html">Polityka Prywatności (Privacy Policy)</a>
+        </p>
     </footer>
+
+    <div id="cookie-banner">
+        <p>Ta strona korzysta z plików cookies w celu zapewnienia prawidłowego działania oraz w celach analitycznych i płatnościowych (Stripe). Kontynuując przeglądanie, wyrażasz na to zgodę.</p>
+        <button class="btn-cookie" onclick="acceptCookies()">Rozumiem i Akceptuję</button>
+    </div>
+
+    <script>
+        if (localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
