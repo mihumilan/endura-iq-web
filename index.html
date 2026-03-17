@@ -42,6 +42,7 @@
         }
         .logo { font-size: 24px; font-weight: 900; color: var(--text-main); letter-spacing: 1px; text-decoration: none;}
         .logo span { color: var(--accent-color); }
+        .nav-links { display: flex; align-items: center; }
         .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-color); }
         .btn-login {
@@ -91,7 +92,6 @@
             display: flex;
             justify-content: center;
         }
-        /* Efekt "lewitującego" telefonu/ekranu */
         .mockup-main {
             width: 100%;
             max-width: 500px;
@@ -123,7 +123,33 @@
         .feature-card h3 { color: var(--accent-color); margin-bottom: 15px; }
         .feature-card p { color: var(--text-muted); font-size: 15px; }
 
-        /* APP SHOWCASE (Wielki podgląd na całą szerokość) */
+        /* O TRENERZE (Nowa Sekcja) */
+        .coach-section { background: #0E1218; padding: 80px 5%; margin-top: 80px; }
+        .coach-container {
+            display: flex;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+        .coach-visual { flex: 0 0 300px; text-align: center; }
+        .coach-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .coach-info { flex: 1; }
+        .coach-info h3 { color: #FFF; font-size: 28px; font-weight: 800; margin-bottom: 5px; }
+        .coach-info h4 { color: var(--accent-color); font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .coach-info p { color: var(--text-muted); font-size: 15px; margin-bottom: 15px; }
+        .credentials-list { list-style: none; margin-top: 25px; }
+        .credentials-list li { color: #FFF; font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; }
+        .credentials-list li::before { content: "⚡"; color: var(--accent-color); margin-right: 10px; }
+
+        /* APP SHOWCASE */
         .app-showcase {
             margin: 120px 5% 60px;
             text-align: center;
@@ -131,15 +157,15 @@
         .showcase-img {
             width: 100%;
             max-width: 1000px;
-            border-radius: 16px;
+            border-radius: 166px;
             border: 1px solid var(--border-color);
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
         /* TESTIMONIALS */
-        .testimonials { background: #0E1218; padding: 60px 5%; margin-top: 80px; }
+        .testimonials { background: var(--bg-color); padding: 60px 5%; margin-top: 80px; }
         .test-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .test-card { background: var(--bg-color); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; max-width: 350px; font-style: italic; color: var(--text-muted); }
+        .test-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; max-width: 350px; font-style: italic; color: var(--text-muted); }
         .test-card strong { display: block; margin-top: 15px; color: #FFF; font-style: normal; }
 
         /* PRICING */
@@ -175,7 +201,10 @@
             h1 { font-size: 42px; }
             .hero-text { max-width: 100%; }
             .mockup-main { transform: none; margin-top: 40px; }
-            .nav-links a:not(.btn-login) { display: none; /* Ukrywa zwykłe linki na małym ekranie, zostawia "Zaloguj" */ }
+            .nav-links a:not(.btn-login) { display: none; }
+            
+            .coach-container { flex-direction: column; text-align: center; gap: 30px; }
+            .credentials-list li { justify-content: center; }
         }
 
         /* COOKIE BANNER */
@@ -187,6 +216,9 @@
         }
         #cookie-banner p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0;}
         .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; color: #000; }
+        
+        /* Gładkie przewijanie do sekcji */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
@@ -195,7 +227,7 @@
         <a href="#" class="logo">ENDURA<span>IQ</span></a>
         <div class="nav-links">
             <a href="#features">Platforma</a>
-            <a href="#pricing">Współpraca</a>
+            <a href="#about">O mnie</a> <a href="#pricing">Współpraca</a>
             <a href="https://endura-iq.onrender.com" class="btn-login" target="_blank">Zaloguj się</a>
         </div>
     </nav>
@@ -227,6 +259,27 @@
             <div class="feature-icon">🎯</div>
             <h3>Precyzyjne Strefy</h3>
             <p>Działamy na twardych liczbach. Moc na rowerze (W), tempo pływackie (/100m) i precyzyjne strefy biegowe importowane prosto na tarcze Twojego zegarka.</p>
+        </div>
+    </div>
+
+    <div class="coach-section" id="about">
+        <h2 class="section-title">O Trenerze</h2>
+        <div class="coach-container">
+            <div class="coach-visual">
+                <img src="https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Trener Endura IQ - Twoje Imię" class="coach-photo">
+            </div>
+            <div class="coach-info">
+                <h3>[TWOJE IMIĘ I NAZWISKO]</h3>
+                <h4>Główny Trener & Założyciel Endura IQ</h4>
+                <p>Moja misja to łączenie pasji do sportu z naukowym podejściem do treningu. Wierzę, że kluczem do sukcesu nie jest cięższy trening, ale mądrzejszy. W Endura IQ wykorzystuję dane i fizjologię, aby pomóc Ci osiągać cele przy optymalnym wykorzystaniu Twojego czasu.</p>
+                <p>Jako aktywny zawodnik i trener z wieloletnim doświadczeniem, rozumiem wyzwania stojące przed amatorami godzącymi trening z życiem zawodowym i rodzinnym. Moje plany są dynamiczne i dostosowują się do Twoich potrzeb, opierając się na twardych parametrach wydolnościowych.</p>
+                <ul class="credentials-list">
+                    <li>🏆 Ukończone [liczba] maratonów i [liczba] zawodów IRONMAN</li>
+                    <li>🎓 Certyfikowany Trener Triathlonu (np. PZTri)</li>
+                    <li>🎓 Specjalista Fizjologii Wysiłku</li>
+                    <li>⌚ Ekspert w analizie danych z urządzeń pomiarowych (Wahoo/Garmin/Stryd)</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -280,7 +333,7 @@
         </div>
         <div class="faq-item">
             <h4>3. Czy moje dane zdrowotne są bezpieczne?</h4>
-            <p>Tak. Traktujemy Twoją prywatność ze śmiertelną powagą. Baza danych znajduje się w bezpiecznej, szyfrowanej chmurze MongoDB. Twoje hasła są zabezpieczone algorytmem bcrypt (zgodnie z RODO). W każdej chwili masz prawo wykasować całe swoje konto jednym kliknięciem ("Prawo do bycia zapomnianym").</p>
+            <p>Tak. Traktujemy Twoją prywatność ze śmiertelną powagą. Baza danych znajduje się w bezpiecznej, szyfrowanej chmurze MongoDB. Twoje hasła are secured algorithmically bcrypt (zgodnie z RODO). W każdej chwili masz prawo wykasować całe swoje konto jednym kliknięciem ("Prawo do bycia zapomnianym").</p>
         </div>
     </div>
 
@@ -288,8 +341,8 @@
         <p>&copy; 2026 Endura IQ Coaching. Wszelkie prawa zastrzeżone.</p>
         <p style="margin-top: 10px;">
             Kontakt: <a href="mailto:trener@enduraiq.com">trener@enduraiq.com</a> |
-            <a href="terms.html">Regulamin (Terms of Service)</a> | 
-            <a href="privacy.html">Polityka Prywatności (Privacy Policy)</a>
+            <a href="terms.html">Regulamin</a> | 
+            <a href="privacy.html">Polityka Prywatności</a>
         </p>
     </footer>
 
