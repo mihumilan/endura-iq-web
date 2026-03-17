@@ -40,7 +40,7 @@
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
-        .logo { font-size: 24px; font-weight: 900; color: var(--text-main); letter-spacing: 1px; }
+        .logo { font-size: 24px; font-weight: 900; color: var(--text-main); letter-spacing: 1px; text-decoration: none;}
         .logo span { color: var(--accent-color); }
         .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 25px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-color); }
@@ -53,15 +53,23 @@
         }
         .btn-login:hover { background: var(--accent-color); color: #000 !important; }
 
-        /* HERO SECTION */
+        /* HERO SECTION (SPLIT LAYOUT) */
         header {
-            text-align: center;
-            padding: 180px 20px 100px;
-            background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.1) 0%, transparent 50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 160px 5% 100px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+            min-height: 100vh;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
         }
         h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
         h1 span { color: var(--accent-color); }
-        .subtitle { font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-weight: 300; }
+        .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; font-weight: 300; }
         .btn-main {
             display: inline-block;
             background: linear-gradient(90deg, #00B4D8 0%, #00E5FF 100%);
@@ -76,6 +84,26 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
+        
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        /* Efekt "lewitującego" telefonu/ekranu */
+        .mockup-main {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(0, 229, 255, 0.2);
+            border: 1px solid var(--border-color);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+        .mockup-main:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
 
         /* FEATURES */
         .section-title { text-align: center; font-size: 36px; margin: 80px 0 40px; font-weight: 800; }
@@ -94,6 +122,19 @@
         .feature-icon { font-size: 40px; margin-bottom: 20px; }
         .feature-card h3 { color: var(--accent-color); margin-bottom: 15px; }
         .feature-card p { color: var(--text-muted); font-size: 15px; }
+
+        /* APP SHOWCASE (Wielki podgląd na całą szerokość) */
+        .app-showcase {
+            margin: 120px 5% 60px;
+            text-align: center;
+        }
+        .showcase-img {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
 
         /* TESTIMONIALS */
         .testimonials { background: #0E1218; padding: 60px 5%; margin-top: 80px; }
@@ -128,6 +169,15 @@
         footer { border-top: 1px solid var(--border-color); padding: 40px 5%; text-align: center; color: var(--text-muted); margin-top: 60px; font-size: 14px;}
         footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
 
+        /* RESPONSIVE DESIGN (Telefony) */
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding-top: 120px; }
+            h1 { font-size: 42px; }
+            .hero-text { max-width: 100%; }
+            .mockup-main { transform: none; margin-top: 40px; }
+            .nav-links a:not(.btn-login) { display: none; /* Ukrywa zwykłe linki na małym ekranie, zostawia "Zaloguj" */ }
+        }
+
         /* COOKIE BANNER */
         #cookie-banner {
             position: fixed; bottom: 0; left: 0; width: 100%;
@@ -136,24 +186,29 @@
             display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;
         }
         #cookie-banner p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0;}
-        .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; color: #000; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">ENDURA<span>IQ</span></div>
+        <a href="#" class="logo">ENDURA<span>IQ</span></a>
         <div class="nav-links">
             <a href="#features">Platforma</a>
             <a href="#pricing">Współpraca</a>
-            <a href="https://https://endura-iq.onrender.com" class="btn-login" target="_blank">Zaloguj się</a>
+            <a href="https://endura-iq.onrender.com" class="btn-login" target="_blank">Zaloguj się</a>
         </div>
     </nav>
 
     <header>
-        <h1>Science-Based <span>Coaching</span></h1>
-        <p class="subtitle">Osiągnij życiową formę dzięki planom treningowym opartym na twardych danych, fizjologii i automatycznej integracji z Twoim zegarkiem.</p>
-        <a href="#pricing" class="btn-main">Rozpocznij współpracę</a>
+        <div class="hero-text">
+            <h1>Science-Based <span>Coaching</span></h1>
+            <p class="subtitle">Osiągnij życiową formę dzięki planom treningowym opartym na twardych danych, fizjologii i automatycznej integracji z Twoim zegarkiem Garmin.</p>
+            <a href="#pricing" class="btn-main">Rozpocznij współpracę</a>
+        </div>
+        <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Podgląd aplikacji Endura IQ" class="mockup-main">
+        </div>
     </header>
 
     <h2 class="section-title" id="features">Dlaczego Endura IQ?</h2>
@@ -173,6 +228,12 @@
             <h3>Precyzyjne Strefy</h3>
             <p>Działamy na twardych liczbach. Moc na rowerze (W), tempo pływackie (/100m) i precyzyjne strefy biegowe importowane prosto na tarcze Twojego zegarka.</p>
         </div>
+    </div>
+
+    <div class="app-showcase">
+        <h2 class="section-title" style="margin-top: 0;">Kontroluj każdy parametr formy</h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Zaawansowany panel analityczny pozwoli Ci zrozumieć swój organizm. Od wykresów czasu w strefach, po potężną mapę Krzywej Profilu Mocy (MMP).</p>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Endura IQ" class="showcase-img">
     </div>
 
     <div class="testimonials">
