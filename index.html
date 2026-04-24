@@ -123,6 +123,37 @@
         .credentials-list li { color: #FFF; font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; }
         .credentials-list li::before { content: "⚡"; color: var(--accent-color); margin-right: 10px; }
 
+        /* GUIDE SECTION */
+        .guide-section { padding: 80px 5%; background: var(--bg-color); }
+        .guide-steps { max-width: 900px; margin: 0 auto; position: relative; }
+        .step-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            padding: 30px; 
+            margin-bottom: 30px; 
+            display: flex; 
+            gap: 25px; 
+            transition: 0.3s;
+        }
+        .step-card:hover { border-color: var(--accent-color); transform: translateX(10px); }
+        .step-number { 
+            background: var(--accent-color); 
+            color: #000; 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 900; 
+            flex-shrink: 0;
+        }
+        .step-content h3 { color: var(--accent-color); margin-bottom: 10px; font-size: 20px; }
+        .step-content p { color: var(--text-muted); font-size: 15px; }
+        .step-content ul { margin-top: 10px; color: var(--text-muted); font-size: 14px; list-style: none; }
+        .step-content ul li::before { content: "→"; color: var(--accent-color); margin-right: 8px; }
+
         /* APP SHOWCASE */
         .app-showcase { margin: 120px 5% 60px; text-align: center; }
         .showcase-img { width: 100%; max-width: 1000px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
@@ -167,37 +198,6 @@
         #cookie-banner p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0;}
         .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; color: #000; }
         html { scroll-behavior: smooth; }
-        
-        /* GUIDE SECTION */
-        .guide-section { padding: 80px 5%; background: var(--bg-color); }
-        .guide-steps { max-width: 900px; margin: 0 auto; position: relative; }
-        .step-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 12px; 
-            padding: 30px; 
-            margin-bottom: 30px; 
-            display: flex; 
-            gap: 25px; 
-            transition: 0.3s;
-        }
-        .step-card:hover { border-color: var(--accent-color); transform: translateX(10px); }
-        .step-number { 
-            background: var(--accent-color); 
-            color: #000; 
-            width: 40px; 
-            height: 40px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-weight: 900; 
-            flex-shrink: 0;
-        }
-        .step-content h3 { color: var(--accent-color); margin-bottom: 10px; font-size: 20px; }
-        .step-content p { color: var(--text-muted); font-size: 15px; }
-        .step-content ul { margin-top: 10px; color: var(--text-muted); font-size: 14px; list-style: none; }
-        .step-content ul li::before { content: "→"; color: var(--accent-color); margin-right: 8px; }
     </style>
 </head>
 <body>
@@ -231,8 +231,8 @@
                 <span class="en">Data-Driven <br><span>Coaching.</span></span>
             </h1>
             <p class="subtitle">
-                <span class="pl">W 100% indywidualne plany treningowe. Zaawansowana analiza danych i automatyczna integracja z Twoim zegarkiem Garmin.</span>
-                <span class="en">100% custom training plans. Deep physiological insights. Seamless Garmin integration for endurance athletes.</span>
+                <span class="pl">W 100% indywidualne plany treningowe. Zaawansowana analiza danych i mądre podejście do monitorowania formy.</span>
+                <span class="en">100% custom training plans. Deep physiological insights and a smart approach to fitness tracking.</span>
             </p>
             <a href="#pricing" class="btn-main">
                 <span class="pl">Rozpocznij współpracę</span><span class="en">Start Training</span>
@@ -250,11 +250,11 @@
         <div class="feature-card">
             <div class="feature-icon">⌚</div>
             <h3>
-                <span class="pl">Garmin Auto-Sync</span><span class="en">Garmin Auto-Sync</span>
+                <span class="pl">Eksport i Analiza Danych</span><span class="en">Data Export & Analysis</span>
             </h3>
             <p>
-                <span class="pl">Nie musisz ręcznie zgłaszać wykonania planu. Aplikacja sama pobierze Twój trening, przeanalizuje go i połączy z wytycznymi.</span>
-                <span class="en">No manual uploads required. Workouts are pushed directly to your watch, and completed sessions sync back automatically.</span>
+                <span class="pl">Wgrywaj pliki treningowe z zegarka lub opcjonalnie połącz konto Garmin Connect. System przeanalizuje każdy Twój krok i uderzenie serca.<br><br><small style="color: var(--accent-color);">⚡ Pełna integracja ze Strava wkrótce (czekamy na zwiększenie limitów API).</small></span>
+                <span class="en">Upload workout files from your watch or optionally connect your Garmin Connect account. The system analyzes every step and heartbeat.<br><br><small style="color: var(--accent-color);">⚡ Full Strava integration coming soon (waiting for API limit increase).</small></span>
             </p>
         </div>
         <div class="feature-card">
@@ -273,8 +273,8 @@
                 <span class="pl">Precyzyjne Strefy</span><span class="en">Precision Zones</span>
             </h3>
             <p>
-                <span class="pl">Działamy na twardych liczbach. Moc na rowerze (W), tempo i tętno importowane prosto na tarcze Twojego zegarka.</span>
-                <span class="en">We work with hard data. Power (W), pace, and heart rate zones integrated perfectly into your structured workouts.</span>
+                <span class="pl">Działamy na twardych liczbach. Otrzymujesz precyzyjne strefy mocy na rowerze (W), tempo i tętno idealnie dobrane pod Twój organizm.</span>
+                <span class="en">We work with hard data. You get precision power zones (W), pace, and heart rate targeted exactly for your body.</span>
             </p>
         </div>
     </div>
@@ -351,10 +351,10 @@
             <div class="step-card">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3><span class="pl">Synchronizacja Garmin/Strava</span><span class="en">Sync Garmin/Strava</span></h3>
+                    <h3><span class="pl">Wgrywanie Treningów</span><span class="en">Workout Uploads</span></h3>
                     <p>
-                        <span class="pl">Połącz konto ze Stravą lub Garmin Connect. Treningi będą automatycznie trafiać na Twój zegarek i wracać do aplikacji po wykonaniu.</span>
-                        <span class="en">Connect your account with Strava or Garmin Connect. Workouts will be pushed to your watch and synced back automatically.</span>
+                        <span class="pl">Wgrywaj pliki (TCX) ręcznie lub skorzystaj z opcjonalnej integracji z Garmin Connect. Pracujemy również nad automatyczną synchronizacją ze Strava (wkrótce dostępne po zwiększeniu limitów API).</span>
+                        <span class="en">Upload your workout files (TCX) manually or use the optional Garmin Connect integration. We are also working on automatic Strava synchronization (coming soon after API limit increase).</span>
                     </p>
                 </div>
             </div>
@@ -364,8 +364,8 @@
                 <div class="step-content">
                     <h3><span class="pl">Realizacja planu</span><span class="en">Executing the plan</span></h3>
                     <p>
-                        <span class="pl">Rano Twój Garmin zapyta: "Czy wykonać dzisiejszy trening?". Ty tylko klikasz START. System dba o odpowiednie strefy mocy i tętna.</span>
-                        <span class="en">In the morning, your Garmin will ask: "Do you want to do today's workout?". Just press START. The system handles all intensity zones.</span>
+                        <span class="pl">Skonfiguruj swoje strefy w zegarku i ruszaj na trening. System aplikacji zadba o podsumowanie i analizę stref mocy, tempa i tętna po wykonanej sesji.</span>
+                        <span class="en">Set up your zones on your watch and head out. The app system will summarize and analyze your power, pace, and HR zones after the session.</span>
                     </p>
                 </div>
             </div>
@@ -416,8 +416,8 @@
                 <strong>- Michał, Triathlon (IRONMAN 70.3)</strong>
             </div>
             <div class="test-card">
-                <span class="pl">"Funkcja automatycznego wysyłania planu z apki prosto na mojego Garmina to mistrzostwo świata. Odpalam zegarek i jadę to co wyliczył system."</span>
-                <span class="en">"The auto-sync feature pushing workouts straight to my Garmin is a game-changer. I just press start and ride what the system calculated."</span>
+                <span class="pl">"Dzięki aplikacji w końcu przestałem gubić się w moich plikach treningowych. Wgrywam tcx, a system robi za mnie całą analizę."</span>
+                <span class="en">"Thanks to the app, I finally stopped getting lost in my training files. I upload the tcx, and the system does all the analysis for me."</span>
                 <strong>- Kasia, Kolarstwo / Cycling</strong>
             </div>
         </div>
@@ -437,8 +437,8 @@
                 <li><span class="pl">Dostęp do konta w Endura IQ</span><span class="en">Full access to Endura IQ app</span></li>
                 <li><span class="pl">Analiza danych (Moc, Tętno, Tempo)</span><span class="en">Data analysis (Power, HR, Pace)</span></li>
                 <li><span class="pl">Statystyki formy (PMC, MMP)</span><span class="en">Advanced stats (PMC, Power Curve)</span></li>
-                <li><span class="pl">Nielimitowany kontakt</span><span class="en">Unlimited coach communication</span></li>
-                <li><span class="pl">Auto-synchronizacja Garmin Connect</span><span class="en">Garmin Connect auto-sync</span></li>
+                <li><span class="pl">Nielimitowany kontakt na czacie</span><span class="en">Unlimited coach communication</span></li>
+                <li><span class="pl">Obsługa plików treningowych (TCX/Garmin)</span><span class="en">Workout file support (TCX/Garmin)</span></li>
             </ul>
             <a href="https://buy.stripe.com/twoj-link-tutaj" class="btn-main" style="width: 100%;">
                 <span class="pl">WYKUP DOSTĘP</span><span class="en">GET ACCESS</span>
@@ -459,8 +459,8 @@
                 <span class="pl">1. Czy potrzebuję zegarka Garmin?</span><span class="en">1. Do I need a Garmin watch?</span>
             </h4>
             <p>
-                <span class="pl">Nie jest to wymóg konieczny, ale mocno zalecany. Endura IQ posiada autorską integrację z Garminem. Zegarki innych firm obsługiwane są przez eksport plików TCX.</span>
-                <span class="en">It's not mandatory, but highly recommended. Endura IQ features seamless native integration with Garmin. Other brands are supported via TCX file export.</span>
+                <span class="pl">Nie! Możesz używać dowolnego zegarka sportowego (Polar, Suunto, Coros, Wahoo). Wystarczy wyeksportować trening do uniwersalnego pliku TCX i wgrać go do aplikacji. Dla użytkowników Garmina dostępna jest też opcja dodatkowego połączenia kont.</span>
+                <span class="en">No! You can use any sports watch (Polar, Suunto, Coros, Wahoo). Just export your workout to a universal TCX file and upload it to the app. For Garmin users, there's also an option to connect accounts directly.</span>
             </p>
         </div>
         <div class="faq-item">
