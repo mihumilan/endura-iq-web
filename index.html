@@ -51,10 +51,24 @@
             color: var(--accent-color) !important;
             padding: 8px 20px;
             border-radius: 6px;
+            margin-left: 25px;
         }
         .btn-login:hover { background: var(--accent-color); color: #000 !important; }
 
-        /* HERO SECTION (SPLIT LAYOUT) */
+        /* --- SYSTEM JĘZYKOWY --- */
+        .lang-switch { display: flex; align-items: center; gap: 8px; margin-left: 25px; color: var(--text-muted); font-size: 14px; font-weight: bold; }
+        .lang-switch .active { color: var(--accent-color); }
+        .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1F2735; transition: .4s; border-radius: 24px; border: 1px solid var(--accent-color); }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: var(--accent-color); transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent-color); }
+        input:checked + .slider:before { transform: translateX(20px); background-color: #000; }
+        
+        body.lang-en .pl { display: none !important; }
+        body:not(.lang-en) .en { display: none !important; }
+
+        /* HERO SECTION */
         header {
             display: flex;
             align-items: center;
@@ -64,10 +78,7 @@
             min-height: 100vh;
             gap: 40px;
         }
-        .hero-text {
-            flex: 1;
-            max-width: 600px;
-        }
+        .hero-text { flex: 1; max-width: 600px; }
         h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
         h1 span { color: var(--accent-color); }
         .subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; font-weight: 300; }
@@ -86,61 +97,24 @@
         }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
         
-        .hero-visual {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-        .mockup-main {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(0, 229, 255, 0.2);
-            border: 1px solid var(--border-color);
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-            transition: transform 0.5s ease;
-        }
-        .mockup-main:hover {
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-        }
+        .hero-visual { flex: 1; position: relative; display: flex; justify-content: center; }
+        .mockup-main { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(0, 229, 255, 0.2); border: 1px solid var(--border-color); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: transform 0.5s ease; }
+        .mockup-main:hover { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
 
         /* FEATURES */
         .section-title { text-align: center; font-size: 36px; margin: 80px 0 40px; font-weight: 800; }
         .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0 5%; }
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px 30px;
-            flex: 1 1 300px;
-            max-width: 400px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
+        .feature-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 40px 30px; flex: 1 1 300px; max-width: 400px; text-align: center; transition: transform 0.3s; }
         .feature-card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
         .feature-icon { font-size: 40px; margin-bottom: 20px; }
         .feature-card h3 { color: var(--accent-color); margin-bottom: 15px; }
         .feature-card p { color: var(--text-muted); font-size: 15px; }
 
-        /* O TRENERZE (Nowa Sekcja) */
+        /* ABOUT COACH */
         .coach-section { background: #0E1218; padding: 80px 5%; margin-top: 80px; }
-        .coach-container {
-            display: flex;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            gap: 50px;
-        }
+        .coach-container { display: flex; align-items: center; max-width: 1000px; margin: 0 auto; gap: 50px; }
         .coach-visual { flex: 0 0 300px; text-align: center; }
-        .coach-photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        .coach-photo { width: 250px; height: 250px; border-radius: 50%; object-fit: cover; border: 4px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .coach-info { flex: 1; }
         .coach-info h3 { color: #FFF; font-size: 28px; font-weight: 800; margin-bottom: 5px; }
         .coach-info h4 { color: var(--accent-color); font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
@@ -150,17 +124,8 @@
         .credentials-list li::before { content: "⚡"; color: var(--accent-color); margin-right: 10px; }
 
         /* APP SHOWCASE */
-        .app-showcase {
-            margin: 120px 5% 60px;
-            text-align: center;
-        }
-        .showcase-img {
-            width: 100%;
-            max-width: 1000px;
-            border-radius: 166px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-        }
+        .app-showcase { margin: 120px 5% 60px; text-align: center; }
+        .showcase-img { width: 100%; max-width: 1000px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
 
         /* TESTIMONIALS */
         .testimonials { background: var(--bg-color); padding: 60px 5%; margin-top: 80px; }
@@ -170,15 +135,7 @@
 
         /* PRICING */
         .pricing { padding: 80px 5%; text-align: center; }
-        .price-card {
-            background: linear-gradient(145deg, #131821 0%, #0B0E14 100%);
-            border: 2px solid var(--accent-color);
-            border-radius: 16px;
-            padding: 50px;
-            max-width: 450px;
-            margin: 0 auto;
-            box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15);
-        }
+        .price-card { background: linear-gradient(145deg, #131821 0%, #0B0E14 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 50px; max-width: 450px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15); }
         .price { font-size: 56px; font-weight: 900; margin: 20px 0; }
         .price span { font-size: 20px; color: var(--text-muted); font-weight: 400; }
         .price-list { list-style: none; margin: 30px 0; text-align: left; color: var(--text-muted); }
@@ -195,29 +152,20 @@
         footer { border-top: 1px solid var(--border-color); padding: 40px 5%; text-align: center; color: var(--text-muted); margin-top: 60px; font-size: 14px;}
         footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
 
-        /* RESPONSIVE DESIGN (Telefony) */
         @media (max-width: 768px) {
             header { flex-direction: column; text-align: center; padding-top: 120px; }
             h1 { font-size: 42px; }
             .hero-text { max-width: 100%; }
             .mockup-main { transform: none; margin-top: 40px; }
-            .nav-links a:not(.btn-login) { display: none; }
-            
+            .nav-links { display: none; } /* Uproszczone menu na mobile */
             .coach-container { flex-direction: column; text-align: center; gap: 30px; }
             .credentials-list li { justify-content: center; }
         }
 
         /* COOKIE BANNER */
-        #cookie-banner {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            background: #11151C; border-top: 1px solid var(--accent-color);
-            padding: 20px; text-align: center; z-index: 9999;
-            display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;
-        }
+        #cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: #11151C; border-top: 1px solid var(--accent-color); padding: 20px; text-align: center; z-index: 9999; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
         #cookie-banner p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0;}
         .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; color: #000; }
-        
-        /* Gładkie przewijanie do sekcji */
         html { scroll-behavior: smooth; }
     </style>
 </head>
@@ -226,49 +174,89 @@
     <nav>
         <a href="#" class="logo">ENDURA<span>IQ</span></a>
         <div class="nav-links">
-            <a href="#features">Platforma</a>
-            <a href="#about">O mnie</a> <a href="#pricing">Współpraca</a>
-            <a href="https://endura-iq.onrender.com" class="btn-login" target="_blank">Zaloguj się</a>
+            <a href="#features"><span class="pl">Platforma</span><span class="en">Features</span></a>
+            <a href="#about"><span class="pl">O trenera</span><span class="en">About Me</span></a> 
+            <a href="#pricing"><span class="pl">Współpraca</span><span class="en">Pricing</span></a>
+            <a href="https://endura-iq.onrender.com" class="btn-login" target="_blank">
+                <span class="pl">Zaloguj się</span><span class="en">Login</span>
+            </a>
+            
+            <div class="lang-switch">
+                <span id="label-pl" class="active">PL</span>
+                <label class="switch">
+                    <input type="checkbox" id="lang-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="label-en">EN</span>
+            </div>
         </div>
     </nav>
 
     <header>
         <div class="hero-text">
-            <h1>Science-Based <span>Coaching</span></h1>
-            <p class="subtitle">Osiągnij życiową formę dzięki planom treningowym opartym na twardych danych, fizjologii i automatycznej integracji z Twoim zegarkiem Garmin.</p>
-            <a href="#pricing" class="btn-main">Rozpocznij współpracę</a>
+            <h1>
+                <span class="pl">Trenuj mądrzej. <br><span>Nie ciężej.</span></span>
+                <span class="en">Data-Driven <br><span>Coaching.</span></span>
+            </h1>
+            <p class="subtitle">
+                <span class="pl">W 100% indywidualne plany treningowe. Zaawansowana analiza danych i automatyczna integracja z Twoim zegarkiem Garmin.</span>
+                <span class="en">100% custom training plans. Deep physiological insights. Seamless Garmin integration for endurance athletes.</span>
+            </p>
+            <a href="#pricing" class="btn-main">
+                <span class="pl">Rozpocznij współpracę</span><span class="en">Start Training</span>
+            </a>
         </div>
         <div class="hero-visual">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Podgląd aplikacji Endura IQ" class="mockup-main">
+            <img src="showcase.png" alt="Podgląd aplikacji Endura IQ" class="mockup-main">
         </div>
     </header>
 
-    <h2 class="section-title" id="features">Dlaczego Endura IQ?</h2>
+    <h2 class="section-title" id="features">
+        <span class="pl">Dlaczego Endura IQ?</span><span class="en">Why Endura IQ?</span>
+    </h2>
     <div class="features">
         <div class="feature-card">
             <div class="feature-icon">⌚</div>
-            <h3>Garmin Auto-Sync</h3>
-            <p>Nie musisz ręcznie zgłaszać wykonania planu. Aplikacja sama pobierze Twój trening z Garmin Connect, zanalizuje go i połączy z wytycznymi trenera.</p>
+            <h3>
+                <span class="pl">Garmin Auto-Sync</span><span class="en">Garmin Auto-Sync</span>
+            </h3>
+            <p>
+                <span class="pl">Nie musisz ręcznie zgłaszać wykonania planu. Aplikacja sama pobierze Twój trening, przeanalizuje go i połączy z wytycznymi.</span>
+                <span class="en">No manual uploads required. Workouts are pushed directly to your watch, and completed sessions sync back automatically.</span>
+            </p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">📊</div>
-            <h3>Silnik Fizjologiczny</h3>
-            <p>Śledzenie zmęczenia (ATL), formy (TSB) i fitnessu (CTL) w czasie rzeczywistym. Twój plan jest zawsze dostosowany do Twojej aktualnej dyspozycji.</p>
+            <h3>
+                <span class="pl">Silnik Fizjologiczny</span><span class="en">Physiological Engine</span>
+            </h3>
+            <p>
+                <span class="pl">Śledzenie zmęczenia (ATL), formy (TSB) i fitnessu (CTL). Twój plan jest zawsze dostosowany do aktualnej dyspozycji.</span>
+                <span class="en">Track fatigue (ATL), form (TSB), and fitness (CTL). Your plan adapts dynamically to your body's current readiness.</span>
+            </p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🎯</div>
-            <h3>Precyzyjne Strefy</h3>
-            <p>Działamy na twardych liczbach. Moc na rowerze (W), tempo pływackie (/100m) i precyzyjne strefy biegowe importowane prosto na tarcze Twojego zegarka.</p>
+            <h3>
+                <span class="pl">Precyzyjne Strefy</span><span class="en">Precision Zones</span>
+            </h3>
+            <p>
+                <span class="pl">Działamy na twardych liczbach. Moc na rowerze (W), tempo i tętno importowane prosto na tarcze Twojego zegarka.</span>
+                <span class="en">We work with hard data. Power (W), pace, and heart rate zones integrated perfectly into your structured workouts.</span>
+            </p>
         </div>
     </div>
 
     <div class="coach-section" id="about">
-        <h2 class="section-title">O Trenerze</h2>
+        <h2 class="section-title">
+            <span class="pl">O Trenerze</span><span class="en">About the Coach</span>
+        </h2>
         <div class="coach-container">
             <div class="coach-visual">
-                <img src="https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Trener Endura IQ - Twoje Imię" class="coach-photo">
+                <img src="trener.jpg" alt="Michał Milian" class="coach-photo">
             </div>
-            <div class="coach-info">
+            
+            <div class="coach-info pl">
                 <h3>MICHAŁ MILIAN</h3>
                 <h4>Główny Trener & Założyciel Endura IQ</h4>
                 <p>Od kilkunastu lat żyję sportem wyczynowym. Moja droga rozpoczęła się od kolarstwa szosowego, w którym ścigałem się od kategorii juniorskich aż po elitę. Obecnie tę samą pasję i żelazną dyscyplinę przekładam na trasy triathlonowe. Wiem z własnego doświadczenia, z jakim wysiłkiem wiąże się walka o urwanie kolejnych sekund i jak ważny jest w tym procesie mądry, oparty na nauce trening.</p>
@@ -281,78 +269,134 @@
                     <li>🏊 Aktywny zawodnik triathlonowy</li>
                 </ul>
             </div>
+
+            <div class="coach-info en">
+                <h3>MICHAŁ MILIAN</h3>
+                <h4>Head Coach & Founder of Endura IQ</h4>
+                <p>I have been deeply involved in competitive endurance sports for over a decade. My journey began in road cycling, where I raced from the junior ranks all the way up to the elite level. Today, I channel that same passion and discipline into triathlon. I know firsthand what it takes to fight for every second, and how crucial a smart, science-backed training approach is to that process.</p>
+                <p>At Endura IQ, I bridge the gap between practical racing experience and academic science. My goal is to optimize your true potential—eliminating the guesswork through physiology and rigorous data analysis.</p>
+                <ul class="credentials-list">
+                    <li>🎓 BSc in Sports Science, AWF Wrocław (Certified Cycling Coach)</li>
+                    <li>🎓 MSc Candidate, AWF Wrocław (Strength & Conditioning Coach)</li>
+                    <li>🏃 Certified Track & Field Instructor</li>
+                    <li>🚴 10+ years of competitive experience (Elite Road Cycling)</li>
+                    <li>🏊 Active Triathlete</li>
+                </ul>
+            </div>
+
         </div>
     </div>
 
     <div class="app-showcase">
-        <h2 class="section-title" style="margin-top: 0;">Kontroluj każdy parametr formy</h2>
-        <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Zaawansowany panel analityczny pozwoli Ci zrozumieć swój organizm. Od wykresów czasu w strefach, po potężną mapę Krzywej Profilu Mocy (MMP).</p>
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Endura IQ" class="showcase-img">
+        <h2 class="section-title" style="margin-top: 0;">
+            <span class="pl">Kontroluj każdy parametr formy</span><span class="en">Control every aspect of your performance</span>
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <span class="pl">Zaawansowany panel analityczny pozwoli Ci zrozumieć swój organizm. Od wykresów czasu w strefach, po potężną mapę Krzywej Profilu Mocy (MMP).</span>
+            <span class="en">The advanced analytics dashboard helps you understand your body. From time-in-zone charts to a powerful Mean Maximal Power (MMP) curve.</span>
+        </p>
+        <img src="showcase.png" alt="Dashboard Endura IQ" class="showcase-img">
     </div>
 
     <div class="testimonials">
-        <h2 class="section-title" style="margin-top:0;">Co mówią zawodnicy</h2>
+        <h2 class="section-title" style="margin-top:0;">
+            <span class="pl">Co mówią zawodnicy</span><span class="en">Athlete Feedback</span>
+        </h2>
         <div class="test-grid">
             <div class="test-card">
-                "Pierwszy raz czuję, że trenuję z głową. Kiedy rano otwieram aplikację, widzę nie tylko co mam zrobić, ale dokładnie DLACZEGO mam to zrobić."
-                <strong>- Michał, Triathlonista (IRONMAN 70.3)</strong>
+                <span class="pl">"Pierwszy raz czuję, że trenuję z głową. Kiedy rano otwieram aplikację, widzę nie tylko co mam zrobić, ale dokładnie DLACZEGO mam to zrobić."</span>
+                <span class="en">"For the first time, I feel like I'm training smart. When I open the app, I don't just see what to do, but exactly WHY I'm doing it."</span>
+                <strong>- Michał, Triathlon (IRONMAN 70.3)</strong>
             </div>
             <div class="test-card">
-                "Funkcja automatycznego wysyłania planu z apki prosto na mojego Garmina to mistrzostwo świata. Odpalam zegarek i jadę to co wyliczył system."
-                <strong>- Kasia, Kolarstwo Szosowe</strong>
+                <span class="pl">"Funkcja automatycznego wysyłania planu z apki prosto na mojego Garmina to mistrzostwo świata. Odpalam zegarek i jadę to co wyliczył system."</span>
+                <span class="en">"The auto-sync feature pushing workouts straight to my Garmin is a game-changer. I just press start and ride what the system calculated."</span>
+                <strong>- Kasia, Kolarstwo / Cycling</strong>
             </div>
         </div>
     </div>
 
     <div class="pricing" id="pricing">
-        <h2 class="section-title">Indywidualna Współpraca</h2>
+        <h2 class="section-title">
+            <span class="pl">Indywidualna Współpraca</span><span class="en">1-on-1 Coaching</span>
+        </h2>
         <div class="price-card">
             <h3>PREMIUM COACHING</h3>
-            <div class="price">499 zł <span>/ mies.</span></div>
+            <div class="price">
+                <span class="pl">499 zł <span>/ mies.</span></span><span class="en">€115 <span>/ mo.</span></span>
+            </div>
             <ul class="price-list">
-                <li>W 100% zindywidualizowany plan</li>
-                <li>Dostęp do własnego konta w aplikacji Endura IQ</li>
-                <li>Analiza danych (Moc, Tętno, Tempo)</li>
-                <li>Krzywa Profilu Mocy i statystyki formy (PMC)</li>
-                <li>Nielimitowany kontakt przez czat w aplikacji</li>
-                <li>Auto-synchronizacja Garmin Connect</li>
+                <li><span class="pl">W 100% zindywidualizowany plan</span><span class="en">100% customized training plan</span></li>
+                <li><span class="pl">Dostęp do konta w Endura IQ</span><span class="en">Full access to Endura IQ app</span></li>
+                <li><span class="pl">Analiza danych (Moc, Tętno, Tempo)</span><span class="en">Data analysis (Power, HR, Pace)</span></li>
+                <li><span class="pl">Statystyki formy (PMC, MMP)</span><span class="en">Advanced stats (PMC, Power Curve)</span></li>
+                <li><span class="pl">Nielimitowany kontakt</span><span class="en">Unlimited coach communication</span></li>
+                <li><span class="pl">Auto-synchronizacja Garmin Connect</span><span class="en">Garmin Connect auto-sync</span></li>
             </ul>
-            <a href="https://buy.stripe.com/twoj-link-tutaj" class="btn-main" style="width: 100%;">WYKUP DOSTĘP</a>
-            <p style="margin-top: 15px; font-size: 12px; color: var(--text-muted);">Brak długoterminowych umów. Możesz zrezygnować w każdej chwili.</p>
+            <a href="https://buy.stripe.com/twoj-link-tutaj" class="btn-main" style="width: 100%;">
+                <span class="pl">WYKUP DOSTĘP</span><span class="en">GET ACCESS</span>
+            </a>
+            <p style="margin-top: 15px; font-size: 12px; color: var(--text-muted);">
+                <span class="pl">Brak długoterminowych umów. Możesz zrezygnować w każdej chwili.</span>
+                <span class="en">No long-term contracts. Cancel anytime.</span>
+            </p>
         </div>
     </div>
 
     <div class="faq">
-        <h2 class="section-title">Często zadawane pytania (FAQ)</h2>
+        <h2 class="section-title">
+            <span class="pl">Często zadawane pytania (FAQ)</span><span class="en">Frequently Asked Questions</span>
+        </h2>
         <div class="faq-item">
-            <h4>1. Czy potrzebuję zegarka Garmin, aby z wami trenować?</h4>
-            <p>Nie jest to wymóg konieczny, ale mocno zalecany. Endura IQ posiada potężną, autorską integrację z ekosystemem Garmin, dzięki czemu plany wgrywają się na zegarek, a odbyte treningi same spływają do naszej bazy do analizy. Jeśli używasz Coros, Wahoo czy Suunto, będziesz mógł pobierać pliki manualnie (TCX).</p>
+            <h4>
+                <span class="pl">1. Czy potrzebuję zegarka Garmin?</span><span class="en">1. Do I need a Garmin watch?</span>
+            </h4>
+            <p>
+                <span class="pl">Nie jest to wymóg konieczny, ale mocno zalecany. Endura IQ posiada autorską integrację z Garminem. Zegarki innych firm obsługiwane są przez eksport plików TCX.</span>
+                <span class="en">It's not mandatory, but highly recommended. Endura IQ features seamless native integration with Garmin. Other brands are supported via TCX file export.</span>
+            </p>
         </div>
         <div class="faq-item">
-            <h4>2. Jak szybko otrzymam plan po opłaceniu subskrypcji?</h4>
-            <p>Po dokonaniu płatności system wygeneruje dla Ciebie zaproszenie do utworzenia konta w aplikacji Endura IQ. Po zalogowaniu zostaniesz poproszony o wypełnienie szczegółowej ankiety profilowej (Zdrowie, Sprzęt, Czas wolny). Na jej podstawie trener w ciągu 48 godzin ułoży Twój pierwszy mikrocykl.</p>
+            <h4>
+                <span class="pl">2. Kiedy otrzymam swój plan?</span><span class="en">2. When do I get my training plan?</span>
+            </h4>
+            <p>
+                <span class="pl">Po dokonaniu płatności otrzymasz dostęp do aplikacji. Po wypełnieniu ankiety profilowej, ułożę Twój pierwszy mikrocykl w ciągu 48 godzin.</span>
+                <span class="en">After payment, you'll gain app access. Once you complete your athlete profile, I will design your first microcycle within 48 hours.</span>
+            </p>
         </div>
         <div class="faq-item">
-            <h4>3. Czy moje dane zdrowotne są bezpieczne?</h4>
-            <p>Tak. Traktujemy Twoją prywatność ze śmiertelną powagą. Baza danych znajduje się w bezpiecznej, szyfrowanej chmurze MongoDB. Twoje hasła are secured algorithmically bcrypt (zgodnie z RODO). W każdej chwili masz prawo wykasować całe swoje konto jednym kliknięciem ("Prawo do bycia zapomnianym").</p>
+            <h4>
+                <span class="pl">3. Czy moje dane są bezpieczne?</span><span class="en">3. Is my health data secure?</span>
+            </h4>
+            <p>
+                <span class="pl">Tak. Baza danych jest zaszyfrowana, a Ty masz prawo wykasować całe swoje konto jednym kliknięciem zgodnie z RODO.</span>
+                <span class="en">Yes. The database is heavily encrypted, and you have the right to delete your entire account and data with one click (GDPR compliant).</span>
+            </p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Endura IQ Coaching. Wszelkie prawa zastrzeżone.</p>
+        <p>&copy; 2026 Endura IQ Coaching. <span class="pl">Wszelkie prawa zastrzeżone.</span><span class="en">All rights reserved.</span></p>
         <p style="margin-top: 10px;">
-            Kontakt: <a href="mailto:trener@enduraiq.com">trener@enduraiq.com</a> |
-            <a href="terms.html">Regulamin</a> | 
-            <a href="privacy.html">Polityka Prywatności</a>
+            <span class="pl">Kontakt:</span><span class="en">Contact:</span> <a href="mailto:trener@enduraiq.com">trener@enduraiq.com</a> |
+            <a href="terms.html"><span class="pl">Regulamin</span><span class="en">Terms</span></a> | 
+            <a href="privacy.html"><span class="pl">Polityka Prywatności</span><span class="en">Privacy Policy</span></a>
         </p>
     </footer>
 
     <div id="cookie-banner">
-        <p>Ta strona korzysta z plików cookies w celu zapewnienia prawidłowego działania oraz w celach analitycznych i płatnościowych (Stripe). Kontynuując przeglądanie, wyrażasz na to zgodę.</p>
-        <button class="btn-cookie" onclick="acceptCookies()">Rozumiem i Akceptuję</button>
+        <p>
+            <span class="pl">Ta strona korzysta z cookies w celach analitycznych i płatnościowych (Stripe).</span>
+            <span class="en">This website uses cookies for analytics and secure payments (Stripe).</span>
+        </p>
+        <button class="btn-cookie" onclick="acceptCookies()">
+            <span class="pl">Akceptuję</span><span class="en">Accept</span>
+        </button>
     </div>
 
     <script>
+        // Ciasteczka
         if (localStorage.getItem('cookiesAccepted')) {
             document.getElementById('cookie-banner').style.display = 'none';
         }
@@ -360,6 +404,34 @@
             localStorage.setItem('cookiesAccepted', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
         }
+
+        // System Językowy
+        const langToggle = document.getElementById('lang-toggle');
+        const labelPl = document.getElementById('label-pl');
+        const labelEn = document.getElementById('label-en');
+
+        // Sprawdź pamięć przeglądarki
+        if(localStorage.getItem('lang') === 'en') {
+            document.body.classList.add('lang-en');
+            langToggle.checked = true;
+            labelEn.classList.add('active');
+            labelPl.classList.remove('active');
+        }
+
+        // Zmiana na kliknięcie
+        langToggle.addEventListener('change', function() {
+            if(this.checked) {
+                document.body.classList.add('lang-en');
+                localStorage.setItem('lang', 'en');
+                labelEn.classList.add('active');
+                labelPl.classList.remove('active');
+            } else {
+                document.body.classList.remove('lang-en');
+                localStorage.setItem('lang', 'pl');
+                labelPl.classList.add('active');
+                labelEn.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
