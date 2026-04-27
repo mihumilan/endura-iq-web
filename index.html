@@ -166,12 +166,18 @@
 
         /* PRICING */
         .pricing { padding: 80px 5%; text-align: center; }
-        .price-card { background: linear-gradient(145deg, #131821 0%, #0B0E14 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 50px; max-width: 450px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15); }
-        .price { font-size: 56px; font-weight: 900; margin: 20px 0; }
+        .pricing-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
+        .price-card { background: linear-gradient(145deg, #131821 0%, #0B0E14 100%); border: 2px solid var(--border-color); border-radius: 16px; padding: 40px 30px; flex: 1 1 300px; max-width: 400px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); transition: transform 0.3s; position: relative; }
+        .price-card:hover { transform: translateY(-10px); }
+        .price-card.premium { border-color: var(--accent-color); box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15); }
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent-color); color: #000; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px; white-space: nowrap; }
+        .price { font-size: 56px; font-weight: 900; margin: 15px 0; }
         .price span { font-size: 20px; color: var(--text-muted); font-weight: 400; }
-        .price-list { list-style: none; margin: 30px 0; text-align: left; color: var(--text-muted); }
-        .price-list li { margin-bottom: 15px; }
+        .price-list { list-style: none; margin: 30px 0; text-align: left; color: var(--text-muted); font-size: 15px; }
+        .price-list li { margin-bottom: 15px; display: flex; }
         .price-list li::before { content: "✓"; color: var(--accent-color); font-weight: bold; margin-right: 10px; }
+        .btn-secondary { display: inline-block; background: transparent; border: 1px solid var(--text-muted); color: #FFF; padding: 16px 40px; font-size: 18px; font-weight: 800; text-decoration: none; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; width: 100%; }
+        .btn-secondary:hover { border-color: var(--accent-color); color: var(--accent-color); }
 
         /* FAQ */
         .faq { max-width: 800px; margin: 80px auto; padding: 0 20px; }
@@ -427,27 +433,56 @@
         <h2 class="section-title">
             <span class="pl">Indywidualna Współpraca</span><span class="en">1-on-1 Coaching</span>
         </h2>
-        <div class="price-card">
-            <h3>PREMIUM COACHING</h3>
-            <div class="price">
-                <span class="pl">499 zł <span>/ mies.</span></span><span class="en">€115 <span>/ mo.</span></span>
+        
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3><span class="pl">SINGLE SPORT</span><span class="en">SINGLE SPORT</span></h3>
+                <p style="color: var(--text-muted); font-size: 14px;">
+                    <span class="pl">Bieganie lub Kolarstwo</span><span class="en">Running or Cycling</span>
+                </p>
+                <div class="price">
+                    €99 <span>/ <span class="pl">mies.</span><span class="en">mo.</span></span>
+                </div>
+                <ul class="price-list">
+                    <li><span class="pl">W 100% zindywidualizowany plan</span><span class="en">100% customized training plan</span></li>
+                    <li><span class="pl">1 dyscyplina bazowa + siłownia</span><span class="en">1 core discipline + strength</span></li>
+                    <li><span class="pl">Dostęp do aplikacji Endura IQ</span><span class="en">Access to Endura IQ app</span></li>
+                    <li><span class="pl">Analiza danych (Moc, Tętno, Tempo)</span><span class="en">Data analysis (Power, HR, Pace)</span></li>
+                    <li><span class="pl">Obsługa plików treningowych</span><span class="en">Workout file support (TCX)</span></li>
+                </ul>
+                <a href="LINK_STRIPE_SINGLE" class="btn-secondary">
+                    <span class="pl">WYBIERZ</span><span class="en">SELECT</span>
+                </a>
             </div>
-            <ul class="price-list">
-                <li><span class="pl">W 100% zindywidualizowany plan</span><span class="en">100% customized training plan</span></li>
-                <li><span class="pl">Dostęp do konta w Endura IQ</span><span class="en">Full access to Endura IQ app</span></li>
-                <li><span class="pl">Analiza danych (Moc, Tętno, Tempo)</span><span class="en">Data analysis (Power, HR, Pace)</span></li>
-                <li><span class="pl">Statystyki formy (PMC, MMP)</span><span class="en">Advanced stats (PMC, Power Curve)</span></li>
-                <li><span class="pl">Nielimitowany kontakt na czacie</span><span class="en">Unlimited coach communication</span></li>
-                <li><span class="pl">Obsługa plików treningowych (TCX/Garmin)</span><span class="en">Workout file support (TCX/Garmin)</span></li>
-            </ul>
-            <a href="https://buy.stripe.com/twoj-link-tutaj" class="btn-main" style="width: 100%;">
-                <span class="pl">WYKUP DOSTĘP</span><span class="en">GET ACCESS</span>
-            </a>
-            <p style="margin-top: 15px; font-size: 12px; color: var(--text-muted);">
-                <span class="pl">Brak długoterminowych umów. Możesz zrezygnować w każdej chwili.</span>
-                <span class="en">No long-term contracts. Cancel anytime.</span>
-            </p>
+
+            <div class="price-card premium">
+                <div class="badge">
+                    <span class="pl">NAJPOPULARNIEJSZY</span><span class="en">MOST POPULAR</span>
+                </div>
+                <h3><span class="pl">TRIATHLON</span><span class="en">TRIATHLON</span></h3>
+                <p style="color: var(--text-muted); font-size: 14px;">
+                    <span class="pl">Pływanie, Rower, Bieg</span><span class="en">Swim, Bike, Run</span>
+                </p>
+                <div class="price">
+                    €149 <span>/ <span class="pl">mies.</span><span class="en">mo.</span></span>
+                </div>
+                <ul class="price-list">
+                    <li><span class="pl">Wszystko to, co w pakiecie Single</span><span class="en">Everything in Single tier</span></li>
+                    <li><span class="pl">Balansowanie 3 dyscyplin</span><span class="en">Balancing 3 disciplines</span></li>
+                    <li><span class="pl">Strategia żywieniowa na zawody</span><span class="en">Race day fueling strategy</span></li>
+                    <li><span class="pl">Analiza techniki (wideo)</span><span class="en">Video technique analysis</span></li>
+                    <li><span class="pl">Priorytetowy kontakt na czacie</span><span class="en">Priority in-app communication</span></li>
+                </ul>
+                <a href="LINK_STRIPE_TRIATHLON" class="btn-main" style="width: 100%;">
+                    <span class="pl">WYBIERZ</span><span class="en">SELECT</span>
+                </a>
+            </div>
         </div>
+
+        <p style="margin-top: 30px; font-size: 13px; color: var(--text-muted);">
+            <span class="pl">Brak długoterminowych umów. Możesz zrezygnować w każdej chwili.</span>
+            <span class="en">No long-term contracts. Cancel anytime.</span>
+        </p>
     </div>
 
     <div class="faq">
