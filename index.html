@@ -204,13 +204,69 @@
         #cookie-banner p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0;}
         .btn-cookie { background: var(--accent-color); border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; color: #000; }
         html { scroll-behavior: smooth; }
+    /* --- Responsywne Menu Mobilne --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent-color, #00ffff);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none; /* Domyślnie ukryte na telefonie */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Wysokość nawigacji */
+        left: 0;
+        width: 100%;
+        background-color: #0b1118; /* Ciemne tło paska */
+        padding: 20px 0;
+        gap: 15px;
+        z-index: 999;
+        text-align: center;
+        border-bottom: 1px solid #11151c;
+    }
+    
+    /* Ta klasa aktywuje pokazanie menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .lang-switch {
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
+    
+    
     </style>
 </head>
-<body>
+<script>
+    // Obsługa menu mobilnego
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburgerBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+    
+    <body>
 
     <nav>
         <a href="#" class="logo">ENDURA<span>IQ</span></a>
-        <div class="nav-links">
+    
+        <!-- Przycisk menu na telefony -->
+        <button class="hamburger" id="hamburger-btn">☰</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="#guide"><span class="pl">Poradnik</span><span class="en">Guide</span></a>
             <a href="#features"><span class="pl">Platforma</span><span class="en">Features</span></a>
             <a href="#about"><span class="pl">O trenerze</span><span class="en">About Me</span></a> 
