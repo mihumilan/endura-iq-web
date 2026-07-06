@@ -250,12 +250,25 @@
 </head>
 <script>
     // Obsługa menu mobilnego
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navLinks = document.getElementById('nav-links');
+    // --- NOWY, ULEPSZONY SKRYPT MENU MOBILNEGO ---
+// Ta funkcja zadba o to, żeby menu otwierało się na wszystkich telefonach,
+// również w Facebooku i innych in-app browsers.
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navLinks = document.getElementById('nav-links');
 
-    hamburgerBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+// Sprawdzamy, czy elementy istnieją, żeby uniknąć błędów
+if (hamburgerBtn && navLinks) {
+  function handleToggle(e) {
+    // Zapobiegamy podwójnemu wywołaniu (dotyk + kliknięcie)
+    if (e.type === 'touchstart') e.preventDefault();
+    navLinks.classList.toggle('active');
+  }
+
+  // Nasłuchujemy na kliknięcie
+  hamburgerBtn.addEventListener('click', handleToggle);
+  // Nasłuchujemy na dotyk (kluczowe dla mobilnych in-app browsers)
+  hamburgerBtn.addEventListener('touchstart', handleToggle);
+}
 </script>
     
     <body>
