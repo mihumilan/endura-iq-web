@@ -276,30 +276,38 @@ if (hamburgerBtn && navLinks) {
     <body>
 
     <nav>
-        <a href="#" class="logo">ENDURA<span>IQ</span></a>
+    <a href="#" class="logo">ENDURA<span>IQ</span></a>
     
-        <!-- Przycisk menu na telefony -->
-        <button class="hamburger" id="hamburger-btn">☰</button>
+    <!-- 1. Główne linki (chowane w hamburgerze na telefonie) -->
+    <div class="nav-links" id="nav-links">
+        <a href="#guide"><span class="pl">Poradnik</span><span class="en">Guide</span></a>
+        <a href="#features"><span class="pl">Platforma</span><span class="en">Features</span></a>
+        <a href="#about"><span class="pl">O trenerze</span><span class="en">About Me</span></a>
+        <a href="#pricing"><span class="pl">Współpraca</span><span class="en">Pricing</span></a>
+    </div>
 
-        <div class="nav-links" id="nav-links">
-            <a href="#guide"><span class="pl">Poradnik</span><span class="en">Guide</span></a>
-            <a href="#features"><span class="pl">Platforma</span><span class="en">Features</span></a>
-            <a href="#about"><span class="pl">O trenerze</span><span class="en">About Me</span></a> 
-            <a href="#pricing"><span class="pl">Współpraca</span><span class="en">Pricing</span></a>
-            <a href="http://178.104.253.192:8501" class="btn-login" target="_blank">
-                <span class="pl">Zaloguj się</span><span class="en">Login</span>
-            </a>
-            
-            <div class="lang-switch">
-                <span id="label-pl" class="active">PL</span>
-                <label class="switch">
-                    <input type="checkbox" id="lang-toggle">
-                    <span class="slider"></span>
-                </label>
-                <span id="label-en">EN</span>
-            </div>
+    <!-- 2. Akcje ZAWSZE widoczne na wierzchu (zapakowane w nowy kontener) -->
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+        
+        <!-- Przełącznik języka -->
+        <div class="lang-switch">
+            <span id="label-pl" class="active">PL</span>
+            <label class="switch">
+                <input type="checkbox" id="lang-toggle">
+                <span class="slider"></span>
+            </label>
         </div>
-    </nav>
+        
+        <!-- Główny przycisk logowania (skróciłem tekst na "Zaloguj", żeby lepiej pasował na wąskich telefonach) -->
+        <a href="http://178.104.253.192:8501" class="btn-login" target="_blank">
+            <span class="pl">Zaloguj</span><span class="en">Login</span>
+        </a>
+
+        <!-- Przycisk hamburgera dla reszty zakładek -->
+        <button class="hamburger" id="hamburger-btn">☰</button>
+        
+    </div>
+</nav>
 
     <header>
         <div class="hero-text">
